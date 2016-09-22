@@ -9,14 +9,14 @@ export default function (kbnServer, server, config) {
     const noHeaderGet = req.method === 'get' && !req.headers[header];
     if (disabled || noHeaderGet) return reply.continue();
 
-    const submission = req.headers[header];
-    if (!submission) return reply(badRequest(`Missing ${header} header`));
-    if (submission !== version) {
-      return reply(badRequest('Browser client is out of date, please refresh the page', {
-        expected: version,
-        got: submission
-      }));
-    }
+    // const submission = req.headers[header];
+    // if (!submission) return reply(badRequest(`Missing ${header} header`));
+    // if (submission !== version) {
+    //   return reply(badRequest('Browser client is out of date, please refresh the page', {
+    //     expected: version,
+    //     got: submission
+    //   }));
+    // }
 
     return reply.continue();
   });
